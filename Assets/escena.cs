@@ -2,36 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class escena : MonoBehaviour {
-    float speed;
+    float speed,x,y,z;
 	// Use this for initialization
 	void Start () {
-        speed = 40f;
+        speed = 50;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		this.transform.rotation=Input.gyro.attitude;
-
-
-	/*	if (Input.GetKey(KeyCode.W))
-        {
-            transform.Rotate(Vector3.right * Time.deltaTime * speed, Space.World);
-			//print (Vector3.right * Time.deltaTime * speed);
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            transform.Rotate(Vector3.left * Time.deltaTime * speed, Space.World);
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            transform.Rotate(Vector3.back* Time.deltaTime * speed, Space.World);
-        }
-        
-        if (Input.GetKey(KeyCode.A))
-        {
-            transform.Rotate(Vector3.forward * Time.deltaTime * speed, Space.World);
-        }
-*/
+       x += Input.acceleration.y * Time.deltaTime * speed;
+        x = Mathf.Clamp(x, -10, 10);
+        y += Input.acceleration.x * -1 * Time.deltaTime * speed;
+        y= Mathf.Clamp(y, -10, 10);
+        transform.localEulerAngles=new Vector3(x,0,y);
     }
+
 }
