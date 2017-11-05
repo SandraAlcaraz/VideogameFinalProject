@@ -13,7 +13,8 @@ public class CameraControler : MonoBehaviour {
     }
 
 	void LateUpdate () {
-        //transform.Rotate(new Vector3(Input.acceleration.x * -1, 0, Input.acceleration.y * -1) * Time.deltaTime * 20);
-        transform.position = player.transform.position + offset;
+   
+        transform.Rotate(new Vector3(Input.acceleration.y*1, 0, Input.acceleration.x* -1) * Time.deltaTime * 20);
+        //transform.position = player.transform.position + offset;
 	}
 }

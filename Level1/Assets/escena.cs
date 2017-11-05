@@ -7,33 +7,16 @@ public class escena : MonoBehaviour {
     float speed,x,y,z;
 	// Use this for initialization
 	void Start () {
-        speed = 40;
+        speed = 50;
 	}
 	
 	// Update is called once per frame
-	void LateUpdate () {
-        //Debug.Log(x);
-        transform.Rotate(new Vector3(Input.acceleration.x*-1,0, Input.acceleration.y*-1) *Time.deltaTime*speed);
-        //transform.Rotate(Input.gyro.attitude);
-        /*
-        if (Input.GetKey(KeyCode.W))
-        {
-            transform.Rotate(Vector3.right * Time.deltaTime * speed, Space.World);
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            transform.Rotate(Vector3.left * Time.deltaTime * speed, Space.World);
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            transform.Rotate(Vector3.back* Time.deltaTime * speed, Space.World);
-        }
-        
-        if (Input.GetKey(KeyCode.A))
-        {
-            transform.Rotate(Vector3.forward * Time.deltaTime * speed, Space.World);
-        }*/
-
+	void Update () {
+       x += Input.acceleration.y * Time.deltaTime * speed;
+        x = Mathf.Clamp(x, -10, 10);
+        y += Input.acceleration.x * -1 * Time.deltaTime * speed;
+        y= Mathf.Clamp(y, -10, 10);
+        transform.localEulerAngles=new Vector3(x,0,y);
     }
 
 }

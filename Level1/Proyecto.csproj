@@ -81,6 +81,7 @@
     <Compile Include="Assets\Camara.cs" />
     <Compile Include="Assets\CameraControler.cs" />
     <Compile Include="Assets\Player.cs" />
+    <Compile Include="Assets\Saltos.cs" />
     <Compile Include="Assets\Scripts\SpinningCube.cs" />
     <Compile Include="Assets\Techo.cs" />
     <Compile Include="Assets\escena.cs" />
